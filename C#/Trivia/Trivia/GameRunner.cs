@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using UglyTrivia;
 
@@ -11,8 +8,24 @@ namespace Trivia
     {
 
         private static bool notAWinner;
+        private readonly Random _random;
+
+        public GameRunner()
+            :this(new Random())
+        {
+        }
+
+        public GameRunner(Random rng)
+        {
+            _random = rng;
+        }
 
         public static void Main(String[] args)
+        {
+            new GameRunner().PlayGame();
+        }
+
+        public void PlayGame()
         {
             Game aGame = new Game();
 
@@ -20,14 +33,11 @@ namespace Trivia
             aGame.add("Pat");
             aGame.add("Sue");
 
-            Random rand = new Random();
-
             do
             {
+                aGame.roll(_random.Next(5) + 1);
 
-                aGame.roll(rand.Next(5) + 1);
-
-                if (rand.Next(9) == 7)
+                if (_random.Next(9) == 7)
                 {
                     notAWinner = aGame.wrongAnswer();
                 }
@@ -35,14 +45,8 @@ namespace Trivia
                 {
                     notAWinner = aGame.wasCorrectlyAnswered();
                 }
-
-
-
             } while (notAWinner);
-
         }
-
-
     }
 
 }
