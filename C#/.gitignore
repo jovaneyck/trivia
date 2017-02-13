@@ -2,3 +2,4 @@
 *.suo
 *.csproj.user
 */packages/*
+*.tmp
