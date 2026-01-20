@@ -1,2 +1,3 @@
 [*.{cs,vb}]
 dotnet_diagnostic.CA1505.severity = warning
+dotnet_diagnostic.CA1303.severity = none
