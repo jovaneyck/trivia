@@ -1,5 +1,4 @@
 # MS Visual Studio
 *.suo
 *.csproj.user
-*/packages/*
-*.tmp
+.idea
