@@ -3,24 +3,24 @@
     public class ApprovalTests
     {
         [Fact]
-        public Task WorldIsSane()
+        public async Task WorldIsSane()
         {
             //Arrange
-            var output = new StringWriter();
+            using var output = new StringWriter();
             Console.SetOut(output);
             var seeded = new Random(1234567890);
 
             //Act
             foreach (var run in Enumerable.Range(1, 100))
             {
-                output.WriteLine($"Starting game {run}:");
+                await output.WriteLineAsync($"Starting game {run}:");
                 new GameRunner(seeded).PlayGame();        
             }
 
             //Assert
             var logs = output.GetStringBuilder().ToString();
             // testOutputHelper.WriteLine(logs);
-            return Verify(logs);
+            await Verify(logs);
         }     
     }
 }
