@@ -1,4 +1,6 @@
 You will be cleaning up some legacy code.
+You are not allowed to change any functionality, only refactor.
+
 Use the following command to build the code and get feedback on the code quality:
 
 # Visual marker
