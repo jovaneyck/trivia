@@ -1,8 +1,6 @@
-﻿using Xunit.Abstractions;
-
-namespace Trivia
+﻿namespace Trivia
 {
-    public class ApprovalTests(ITestOutputHelper testOutputHelper)
+    public class ApprovalTests
     {
         [Fact]
         public Task WorldIsSane()
