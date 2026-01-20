@@ -1,33 +1,28 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-using ApprovalTests;
-using ApprovalTests.Reporters;
-using ApprovalUtilities.Utilities;
-using Xunit;
+﻿using Xunit.Abstractions;
 
 namespace Trivia
 {
-    public class ApprovalTests
+    public class ApprovalTests(ITestOutputHelper testOutputHelper)
     {
         [Fact]
-        [UseReporter(typeof(DiffReporter))]
-        public void WorldIsSane()
+        public Task WorldIsSane()
         {
+            //Arrange
             var output = new StringWriter();
             Console.SetOut(output);
             var seeded = new Random(1234567890);
 
-            Enumerable
-                .Range(1,100)
-                .ForEach(run =>
-                { 
-                    Console.WriteLine($"Starting game {run}:");
-                    new GameRunner(seeded).PlayGame();        
-                });
-            
-            Approvals.Verify(output.GetStringBuilder().ToString());
+            //Act
+            foreach (var run in Enumerable.Range(1, 100))
+            {
+                output.WriteLine($"Starting game {run}:");
+                new GameRunner(seeded).PlayGame();        
+            }
+
+            //Assert
+            var logs = output.GetStringBuilder().ToString();
+            // testOutputHelper.WriteLine(logs);
+            return Verify(logs);
         }     
     }
 }
