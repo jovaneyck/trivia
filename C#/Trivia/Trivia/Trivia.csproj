@@ -9,8 +9,11 @@
     <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <AnalysisMode>All</AnalysisMode>
+  </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <AdditionalFiles Include="CodeMetricsConfig.txt" />
   </ItemGroup>
 
   <ItemGroup>
