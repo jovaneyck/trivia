@@ -1,19 +1,15 @@
 ﻿using System;
-
 using UglyTrivia;
 
 namespace Trivia
 {
     public class GameRunner
     {
-
         private static bool notAWinner;
         private readonly Random _random;
 
         public GameRunner()
-            :this(new Random())
-        {
-        }
+            : this(new Random()) { }
 
         public GameRunner(Random rng)
         {
@@ -48,6 +44,4 @@ namespace Trivia
             } while (notAWinner);
         }
     }
-
 }
-

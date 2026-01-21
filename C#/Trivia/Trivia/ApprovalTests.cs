@@ -14,13 +14,13 @@
             foreach (var run in Enumerable.Range(1, 100))
             {
                 await output.WriteLineAsync($"Starting game {run}:");
-                new GameRunner(seeded).PlayGame();        
+                new GameRunner(seeded).PlayGame();
             }
 
             //Assert
             var logs = output.GetStringBuilder().ToString();
             // testOutputHelper.WriteLine(logs);
             await Verify(logs);
-        }     
+        }
     }
 }
