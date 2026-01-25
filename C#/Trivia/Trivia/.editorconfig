@@ -2,3 +2,5 @@
 dotnet_diagnostic.CA1505.severity = warning
 dotnet_diagnostic.CA1303.severity = none
 dotnet_diagnostic.CA5394.severity = none
+dotnet_diagnostic.CA1822.severity = none
+dotnet_diagnostic.CA1852.severity = none
